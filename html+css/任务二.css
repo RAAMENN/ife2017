@@ -121,6 +121,13 @@ aside form table {
     text-align: left;
 }
 
+aside form table td:first-child {
+    text-align: right;
+}
+
+aside form table td:last-child {
+    text-align: left;
+}
 aside form table span {
     color: #ccc;
 }
