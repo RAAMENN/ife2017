@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>任务三</title>
+    <style>
+    /* flex 方法一*/
+    /* .mainbody{
+			display: flex;
+			padding: 20px;
+			background: #eee;
+			border: 1px solid #999;
+			margin: 20px;
+			align-items: flex-start;
+		}
+
+		.team{
+			width: 200px;
+			border: 1px solid #999;
+			background: white;
+			margin: 10px;
+		}
+		.teamlogo,.indilogo{
+			width: 80px;
+			height: 80px;
+			background: #eee;
+			margin: 20px;
+		}
+		.individual{
+			width: 120px;
+			border: 1px solid #999;
+			margin: 10px;
+			background: white;
+		}
+		.explain{
+			flex: 1;
+			border: 1px solid #999;
+			margin: 10px;
+			padding: 20px;
+		} */
+    /* float 方法二*/
+    /*     .container::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    
+    .mainbody {
+        padding: 20px;
+        background: #eee;
+        border: 1px solid #999;
+        margin: 20px;
+    }
+    
+    .team {
+        float: left;
+        width: 200px;
+        border: 1px solid #999;
+        background: white;
+        margin-right: 20px;
+    }
+    
+    .teamlogo,
+    .indilogo {
+        width: 80px;
+        height: 80px;
+        background: #eee;
+        margin: 20px;
+    }
+    
+    .explain {
+        border: 1px solid #999;
+        padding: 20px;
+        overflow: hidden;
+    }
+    
+    .individual {
+    	float: right;
+        width: 120px;
+        border: 1px solid #999;
+        margin-left: 20px;
+        background: white;
+    } */
+    /* 方法三 */
+    
+    .mainbody {
+        position: relative;
+        padding: 20px;
+        background: #eee;
+        border: 1px solid #999;
+        margin: 20px;
+    }
+    
+    .team {
+        position: absolute;
+        top:20px;
+        left: 20px;
+        width: 200px;
+        border: 1px solid #999;
+        background: white;
+    }
+    
+    .teamlogo,
+    .indilogo {
+        width: 80px;
+        height: 80px;
+        background: #eee;
+        margin: 20px;
+    }
+    
+    .individual {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 120px;
+        border: 1px solid #999;
+        background: white;
+    }
+    
+    .explain {
+        margin-left: 220px;
+        margin-right: 140px;
+        border: 1px solid #999;
+        padding: 20px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="mainbody container">
+        <div class="explain">
+            <p>文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</p>
+        </div>
+        <div class="team">
+            <div class="teamlogo"></div>
+            <span>团队名称</span>
+        </div>
+        <div class="individual">
+            <div class="indilogo"></div>
+            <div class="indilogo"></div>
+            <div class="indilogo"></div>
+            <div class="indilogo"></div>
+            <div class="indilogo"></div>
+        </div>
+    </div>
+</body>
+
+</html>
