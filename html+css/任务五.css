@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #262626;
+    height: 70px;
+    position: relative;
+    width: 100%;
+}
+
+header h1{
+    color: white;
+}
+header nav {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+}
+
+header li {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+header li a {
+    text-decoration: none;
+    font-size: 14px;
+    color: white;
+}
+
+body {
+    background: #d6d7d6;
+}
+
+.main{
+    display: flex;
+    align-items: flex-start;
+}
+.container:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+main article,
+aside {
+    background: white;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-shadow: 2px 3px 3px #aaa;
+}
+aside{
+    width: 360px;
+    margin: 20px;
+    margin-left: 0px;
+}
+
+main{
+    flex: 1;
+    margin: 20px;
+}
+
+article section{
+    float: left;
+}
+article h1 {
+    padding: 10px;
+}
+
+article h2 {
+    color: #aaa;
+    font-size: 16px;
+    padding: 10px;
+}
+
+article span {
+    font-size: 14px;
+    padding: 10px;
+    color: #bbb;
+}
+
+article p {
+    text-indent: 2em;
+    padding: 10px;
+}
+
+article img {
+    max-height: 400px;
+    padding: 10px;
+}
+
+article ul {
+    list-style: none;
+    padding: 10px;
+}
+
+article section {
+    border: 1px solid #aaa;
+    width: 200px;
+    height: 200px;
+    margin-top: 30px;
+    margin-left: 10px;
+    overflow: hidden;
+}
+
+article section img {
+    max-width: 180px;
+}
+
+article section h3 {
+    text-align: center;
+    font-size: 16px;
+}
+
+article ol {
+    padding: 20px 30px 20px 30px;
+}
+
+article table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+article table thead {
+    background: #252627;
+    color: white;
+}
+
+article table tfoot {
+    background: #c0c1c2;
+}
+
+article table td {
+    padding-left: 5px;
+}
+
+aside h1 {
+    border-left: 3px solid #ccc;
+    padding-left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+aside form table {
+    margin: 10px auto;
+    text-align: left;
+}
+
+aside form table td:first-child{
+    text-align: right;
+}
+
+aside form table td:last-child{
+    text-align: left;
+}
+aside form table span {
+    color: #ccc;
+    font-size: 12px;
+}
+
+aside button {
+    width: 100%;
+    height: 50px;
+    background: #213ba1;
+    color: white;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+footer {
+    background: #000001;
+    text-align: center;
+    color: white;
+    height: 50px;
+    line-height: 50px;
+}
