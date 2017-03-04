@@ -1,5 +1,6 @@
 # 任务一：零基础HTML编码
 [点我前往任务地址](http://ife.baidu.com/course/detail/id/90)
+
 ## 任务目的
 + 了解HTML的定义、概念、发展简史
 + 掌握常用HTML标签的含义、用法
@@ -13,3 +14,5 @@
 + 只需要完成HTML代码编写，不需要写CSS
 + 示例图仅为参考，不需要完全实现一致，其中的图片、文案均可自行设定
 + 尽可能多地尝试更多的HTML标签
+
+[点我预览](http://htmlpreview.github.io/?https://github.com/RAAMENN/ife2017/blob/master/html%2Bcss/%E4%BB%BB%E5%8A%A1%E4%B8%80/%E4%BB%BB%E5%8A%A1%E4%B8%80.html)
