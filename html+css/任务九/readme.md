@@ -17,4 +17,4 @@
 *	有能力的同学可以尝试跨浏览器的兼容性
 *	有能力的同学可以在实现一遍后尝试用less, sass或者stylus等再实现一次
 
-[点我预览](http://htmlpreview.github.io/?)
+[点我预览](http://htmlpreview.github.io/?https://github.com/RAAMENN/ife2017/blob/master/html%2Bcss/%E4%BB%BB%E5%8A%A1%E4%B9%9D/%E4%BB%BB%E5%8A%A1%E4%B9%9D.html)
