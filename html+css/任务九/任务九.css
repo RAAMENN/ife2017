@@ -1,0 +1,641 @@
+/* css reset */
+*{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-decoration: none;
+	font-family: "Microsoft YaHei",Arial,Helvetica,sans-serifsans-serif;
+	outline: none;
+}
+
+/* clearfix */
+.container{
+	content: "";
+	display: table;
+	overflow: hidden;
+}
+
+/* header */
+header{
+	width: 100%;
+	height: 60px;
+	background: #1e76b2;
+}
+
+/* logo */
+header #logo{
+	float: left;
+	margin-top: 12px;
+	margin-left: 60px;
+}
+
+
+/* search */
+header #searchbar{
+	float: right;
+	margin-right: 30px;
+	margin-top: 15px;
+}
+
+header #searchbar input{
+	width: 350px;
+	height: 30px;
+	overflow: hidden;
+	line-height: 25px;
+	float: right;
+	border: none;
+	border-radius: 10px;
+	text-indent: 30px;
+}
+
+
+header #searchbar button{
+	width: 30px;
+	vertical-align: middle;
+	height: 30px;
+	border-radius: 10px;
+	background: white url('img/search.png') 6px 6px no-repeat;
+	border: none;
+	margin-right: -120px;
+	cursor: pointer;
+}
+
+/* login */
+header #login{
+	float: right;
+	margin-top: 20px;
+	margin-right: 100px;
+}
+
+header #login a{
+	font-size: 11px;
+	color: white;
+	margin-left: 20px;
+	background: url('img/login.png') 0px 0px no-repeat;
+	padding-left: 20px;
+}
+
+/* aside */
+.mainbody aside{
+	width: 260px;
+	background: #21222f;
+	color: #57647c;
+	overflow: hidden;
+	float: left;
+}
+ol.tree
+{
+	width: 300px;
+	margin-left: -5px;
+	font-size: 14px;
+}
+
+	ol.tree > li{
+		padding: 25px;
+	}
+
+	ol.tree li.selected{
+		background: #2a2e3c;
+	}
+	li 
+	{ 
+		position: relative; 
+		list-style: none;
+		margin-top: 10px;
+	}
+	li.file
+	{
+		margin-left: -1px !important;
+	}
+		li.file a
+		{
+			background: url('img/file.png') 5px 6px no-repeat;
+			color: #57647c;
+			padding-left: 21px;
+			text-decoration: none;
+			display: block;
+		}
+
+		li .selected .selected a {
+			color: #fff;
+			background: url('img/file_active.png') 4px 6px no-repeat;
+		}
+
+	li input
+	{
+		position: absolute;
+		left: 0;
+		margin-left: 0;
+		opacity: 0;
+		z-index: 2;
+		cursor: pointer;
+		height: 1em;
+		width: 1em;
+		top: 0;
+	}
+		input + ol
+		{
+			background: url('img/right.png') 40px -2px no-repeat;
+			margin: -0.938em 0 0 -44px; /* 15px */
+			height: 1em;
+		}
+		li input + ol > li { display: none; margin-left: -14px !important; padding-left: 1px; }
+	ol li > ol li label
+	{
+		background: url('img/foldermain.png') 15px 4px no-repeat;
+		cursor: pointer;
+		display: block;
+		padding-left: 37px;
+	}
+	
+	ol li #personalreport{
+		background: url('img/folder.png') 15px 4px no-repeat;
+		cursor: pointer;
+		display: block;
+		padding-left: 37px;
+	}
+	
+	ol li #likes,#pics,#growth{
+		background: url('img/star.png') 15px 4px no-repeat;
+		cursor: pointer;
+		display: block;
+		padding-left: 37px;
+	}
+	ol li #share{
+		background: url('img/share.png') 15px 4px no-repeat;
+		cursor: pointer;
+		display: block;
+		padding-left: 37px;
+	}
+	ol li #account{
+		background: url('img/account.png') 15px 4px no-repeat;
+		cursor: pointer;
+		display: block;
+		padding-left: 37px;
+	}
+	li .selected{
+		color: #fff;
+	}	
+	li input:checked + ol
+	{
+		background: url('img/bottom.png') 40px -27px no-repeat;
+		margin: -1.25em 0 0 -44px; /* 20px */
+		padding: 1.563em 0 0 80px;
+		height: auto;
+	}
+		li input:checked + ol > li { display: block; margin: 0 0 0.125em;  /* 2px */}
+		li input:checked + ol > li:last-child { margin: 0 0 0.063em; /* 1px */ }
+
+.mainbody aside #userinfo{
+	margin: 20px 60px;
+}
+.mainbody aside #userinfo p{
+	background: url('img/icon.png') no-repeat;
+	padding-left: 60px;
+	height: 50px;
+	padding-top: 15px;
+	color: #fff;
+}
+.mainbody aside #userinfo table {
+	text-align: center;
+	border-collapse: collapse;
+	margin: 0 auto;
+}
+
+.mainbody aside #userinfo table td{
+	font-size: 14px;
+	padding: 0 20px;
+	font-weight: normal;
+}
+.mainbody aside #userinfo table td strong{
+	display: block;
+}
+.mainbody aside #userinfo table td+td{
+	border-left: 1px solid #fff;
+}
+
+.mainbody{
+	width: 1440px;
+	margin: 0 auto;
+}
+.mainbody main{
+	float: left;
+	background: #e8e8e8;
+	width:1180px;
+	display: block;
+}
+
+.mainbody main #breadcrumb{
+	display: block;
+	width: 100%;
+	background: white;
+}
+.mainbody main #breadcrumb li{
+	float: left;
+	font-size: 13px;
+}
+#breadcrumb ul{
+	margin-left: 30px;
+}
+#breadcrumb li+li:before{
+	content: '/ ';
+	color: #ccc;
+}
+
+#breadcrumb li a{
+	color: #ccc;
+}
+
+#breadcrumb li:last-child a{
+	color: #1d75b3;
+}
+
+.wrapper{
+	text-align: center;
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.wrapper .searchform{
+	background: #fff;
+	width: 1000px;
+	margin: 30px 0 0px 0px;
+	color: #999;
+}
+
+.wrapper .searchform table{
+	border-collapse: collapse;
+	font-size: 14px;
+	margin-left: 40px;
+}
+
+.wrapper .searchform table td{
+	padding: 10px;
+}
+
+.wrapper .searchform #maifang,#date,#mai4fang,#chengjiao{
+	width: 100px;
+}
+.wrapper .searchform table #exchange {
+	background: url('img/exchange.png') 0px 24px no-repeat;
+	width: 20px;
+}
+
+.wrapper .searchform table #exchange a{
+	color: #fff;
+	font-size: 13px;
+}
+.wrapper .searchform table button{
+	width: 50px;
+	background: #2f77b4;
+	color: #fff;
+	border: none;
+	height: 30px;
+	border-radius: 2px;
+}
+
+.wrapper .result{
+	margin: 0 auto;
+	width: 1000px;
+}
+
+.wrapper .result ul{
+	display: flex;
+}
+.wrapper .result ul li{
+	display: inline-block;
+	height: 60px;
+	vertical-align: middle;
+	background: #fff;
+	flex: 1;
+	box-shadow: 2px 2px 2px #ccc;
+}
+
+.wrapper .result ul li+li{
+	margin-left: 10px;
+
+}
+
+.wrapper .result ul li.side{
+	width: 30px;
+	text-align: center;
+	font-size: 30px;
+	flex: 0;
+}
+.wrapper .result ul li.active{
+	border-top: 3px solid #3472bc;
+	height: 57px;
+}
+
+.wrapper .result ul li.historysearch a{
+	color: #333;
+	font-size: 14px;
+	height: 100%;
+	width: 100%;
+	display: inline-block;
+	padding-top: 18px;
+	padding-left: 20px;
+	background: url('img/searchhistory_.png') 15px 10px no-repeat;
+}
+.wrapper .result a span{
+	color: #222;
+	font-size: 12px;
+}
+
+.wrapper .result p{
+	color: #ccc;
+	font-size: 16px;
+}
+
+.wrapper .result .strong{
+	color: #e45410;
+	font-size: 20px;
+}
+.wrapper .result .side a{
+	color: #ccc;
+} 
+
+.summary {
+	font-size: 12px;
+	text-align: left;
+	margin-top: 30px;
+}
+
+.summary  p{
+	font-size: 14px;
+}
+.summary .wrapper{
+	display: flex;
+}
+.summary .amount{
+	border: 1px solid #ccc;
+	border-left: 5px solid #38a58e;
+	flex: 1;
+	padding: 20px 10px;
+	background: #fff;
+}
+.summary .amount+.amount{
+	margin-left: 30px;
+}
+
+.summary .amount .title{
+	float: left;
+}
+.summary .amount .color{
+	width: 60px;
+	height: 40px;
+	background: #38a58e;
+	float: right;
+}
+
+.project{
+	margin-top: 20px;
+	width: 1000px;
+}
+
+.project #left,#right{
+	float: left;
+	border: 1px solid #ccc;
+	background: #fff;
+	border-radius: 8px;
+}
+
+.project #left{
+	width: 550px;
+}
+
+.project #right{
+	width: 400px;
+	float: right;
+}
+
+.project #left ul{
+	display: flex;
+	border-bottom: 1px solid #666;
+}
+.project #left ul li{
+	padding: 0 25px;
+	margin-top: 0;
+	margin-left: 0;
+	background: #cdcdcf;
+}
+.project #left ul li+li{
+	margin-left: 9px;
+}
+.project #left .detail{
+	border: 1px solid #666;
+	border-top: none;
+	padding: 30px 0;
+}
+.project #left table{
+	border-collapse: collapse;
+	width: 80%;
+	margin: 0px auto;
+}
+.project #left .smallwrapper{
+	padding: 30px;
+}
+.project #left ul li.active{
+	background: #fff;
+	border: 1px solid #666;
+	border-bottom: none;
+}
+.project #left table td{
+	border: 1px solid #666;
+
+}
+
+.project #left li a{
+	color: #000;
+	font-size: 13px;
+}
+
+.project h3{
+	text-align: left;
+	font-size:14px;
+	color: #999;
+	font-weight: normal;
+	height: 50px;
+	line-height: 50px;
+	padding-left: 20px;
+	background: #f2f3f5;
+	width: 100%;
+}
+
+.project #right {
+	height: 100%;
+}
+.project #right table{
+	border-collapse: collapse;
+	text-align: left;
+	margin: 0 20px;
+	width: 350px;
+	height: 277px;
+}
+
+.project #right table tr td[colspan='1']{
+	border: 1px solid #aaa;
+	border-left: none;
+}
+.project #right table td span{
+	font-size: 14px;
+	color: #999;
+}
+
+.project #right table td p{
+	font-size: 14px;
+	color: #111;
+}
+
+.project #right table button{
+	width: 60px;
+	height: 30px;
+	background: #2e76b4;
+	color: #fff;
+	border: none;
+	margin-left: 140px;
+}
+
+.information{
+	margin-top: 20px;
+	margin-bottom: 300px;
+}
+.information .left{
+	float: left;
+	border: 1px solid #ccc;
+	background: #fff;
+	border-radius: 8px;
+	width: 400px;
+	height: 400px;
+}
+
+.information .right{
+	border: 1px solid #ccc;
+	background: #fff;
+	border-radius: 8px;
+	margin-left:420px ;
+	height: 400px;
+}
+
+.information h3{
+	text-align: left;
+	font-size:14px;
+	color: #999;
+	font-weight: normal;
+	height: 50px;
+	line-height: 50px;
+	padding-left: 20px;
+	background: #f2f3f5;
+}
+
+.information .left form,.information .left table{
+	padding:10px 20px 0;
+}
+
+
+.information .left form{
+	display: flex;
+	margin-bottom: 15px;
+}
+
+.information .left form select,.information .left form button{
+	flex: 1;
+	margin-left: 5px;
+	height: 25px;
+
+}
+
+.information .left table{
+	font-size: 13px;
+	text-align: center;
+	width: 100%;
+	border-collapse: collapse;
+}
+.information .left table td{
+	padding-bottom: 10px;
+}
+.information .left table thead tr td{
+	border-top: 1px solid #a1c7e9;
+	border-bottom: 1px solid #ccc;
+}
+
+.information .left table .holiday,.information .left table .weekend{
+	color: red;
+}
+.information .left table td.selected{
+	border: 1px solid #e9e088;
+}
+
+.information .right table{
+	margin: 20px auto;
+	width: 500px;
+	border-collapse: collapse;
+	border: 1px solid #999;
+	cursor: pointer;
+}
+
+.information .right table thead{
+	font-weight: bold;
+}
+.information .right table td{
+	position: relative;
+}
+.information .right table tbody tr:first-of-type td{
+	background: #ccc;
+}
+.information .right table td.num{
+	text-align: left;
+	padding-left: 30px;
+}
+.information .right table .gray{
+	width: 180px;
+	height: 5px;
+	background: #eee;
+	position: absolute;
+	right: 5px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.information .right table .gray .first{
+	width: 80%;
+	background: #e75740;
+	height: 100%;
+}
+.information .right table .gray .second{
+	width: 70%;
+	background: #e96b3e;
+	height: 100%;	
+}
+.information .right table .gray .third{
+	width: 60%;
+	background: #ec8a3d;
+	height: 100%;
+}
+
+.information .right table .gray .forth,.fifth,.sixth,.seventh,.eighth,.ninth,.tenth{
+	background: #6cbeec;
+	height: 100%;
+}
+
+.information .right table .gray .forth{
+	width: 55%;
+}
+.information .right table .gray .fifth{
+	width: 50%;
+}
+.information .right table .gray .sixth{
+	width: 45%;
+}
+.information .right table .gray .seventh{
+	width: 40%;
+}
+.information .right table .gray .eighth{
+	width: 35%;
+}
+.information .right table .gray .ninth{
+	width: 30%;
+}
+.information .right table .gray .tenth{
+	width: 25%;
+}
