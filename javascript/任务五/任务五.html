@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    #list {
+        list-style: none;
+        vertical-align: middle;
+    }
+    
+    #list li {
+        float: left;
+        background: red;
+        color: white;
+        padding: 10px;
+        margin-right: 10px;
+        width: 5px;
+        border: 1px solid #fff;
+    }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="inputarea">
+    <button id="leftin">左侧输入数字</button>
+    <button id="rightin">右侧输入数字</button>
+    <button id="leftout">左侧删除数字</button>
+    <button id="rightout">右侧删除数字</button>
+    <button id="sort">从小到大排序</button>
+    <button id="sortsmall">从大到小排序</button>
+    <button id="random">随机生成数据</button>
+    <ul id="list"></ul>
+    <script>
+    var leftin = document.getElementById('leftin');
+    var rightin = document.getElementById('rightin');
+    var leftout = document.getElementById('leftout');
+    var rightout = document.getElementById('rightout');
+    var sort=document.getElementById('sort');
+    var sortsmall=document.getElementById('sortsmall');
+    var random=document.getElementById('random');
+    var data = [];
+
+    leftin.onclick = function() {
+        var input = document.getElementById('inputarea').value;
+        if (data.length>60) {
+            alert('The dataset reached its maximun!');
+            return;
+        }
+        if(varifynum(input)) {
+            data.unshift(input);
+            display();
+        }
+    };
+
+    rightin.onclick = function() {
+        var input = document.getElementById('inputarea').value;
+        if (data.length>60) {
+            alert('The dataset has reached its maximun!');
+            return;
+        }
+        if(varifynum(input)){
+            data.push(input);
+            display();
+        }
+    };
+
+    leftout.onclick = function() {
+        if (data.length > 0) {
+            var num = data.shift();
+            display();
+            alert(num);
+        } else {
+            alert('There is no number!');
+        }
+    };
+
+    rightout.onclick = function() {
+        if (data.length > 0) {
+            var num = data.pop();
+            display();
+            alert(num);
+        } else {
+            alert('There is no number!');
+        }
+    };
+
+    
+    sort.onclick=function(){
+    	data.sort(function(a,b){
+    		return a-b;
+    	});
+    	display();
+    };
+
+    sortsmall.onclick=function(){
+    	data.sort(function(a,b){
+    		return b-a;
+    	});
+    	display();
+    };
+    random.onclick=function(){
+    	for(var i=0;i<30;i++){
+    		data.push(Math.random()*100);
+    	}
+    	display();
+    };
+
+    function display() {
+    	var list = document.getElementById('list');
+    	var aLi=list.getElementsByTagName('li');
+        list.innerHTML = '';
+        for (var i = 0; i < data.length; i++) {
+            list.innerHTML += "<li></li>";
+            aLi[i].style.height=data[i]*2+'px';
+            aLi[i].style.marginTop=(100-data[i])*2+'px';
+            aLi[i].title=data[i];
+        }
+    }
+
+    function varifynum(input){
+    	if (isNaN(input)) {
+            alert('Please input number only');
+            return false;
+        } else if (input > 100 || input < 10) {
+            alert('the number needs to between 10-100!');
+            return false;
+        } else {
+            return true;
+        }
+    }
+    </script>
+</body>
+
+</html>
