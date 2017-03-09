@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		input:invalid{
+			border: 1px solid red;
+		}
+
+		input:valid{
+			border: 1px solid #ccc;
+		}
+		
+		input{
+			border-radius: 5px;
+			width: 300px;
+			height: 30px;
+			margin: 0 30px;
+		}
+
+		form{
+			margin: 0 auto;
+			width: 600px;
+			height: 400px;
+			border: 1px solid #ccc;
+			text-align: center;
+		}
+		
+		form div{
+			margin:70px 0;
+		}
+
+		button{
+			color: #fff;
+			background: #235b9b;
+			border-radius: 5px;
+			border: none;
+			width: 60px;
+			height: 30px;
+			font-size: 16px;
+			font-family: Microsoft Yahei;
+		}
+
+		label{
+			font-family: Microsoft Yahei;
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+	<form action="">
+		<div id="row1">
+			<label for="testify1">名称</label>
+			<input type="text" id="testify1">
+			<button>验证</button>
+		</div>
+		<div id="row2">
+			<label for="testify2">名称</label>
+			<input type="text" id="testify2">
+			<button>验证</button>
+		</div>
+		<div id="row3">
+			<label for="testify3">名称</label>
+			<input type="text" id="testify3">
+			<button>验证</button>
+		</div>
+	</form>
+</body>
+</html>
