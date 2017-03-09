@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#list{
+			list-style: none;
+		}
+		#list li{
+			float: left;
+			background: #666;
+			color: white;
+			padding: 10px;
+			margin-right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<textarea name="inputarea" id="inputarea" cols="30" rows="10" placeholder="可输入多项内容，内容间请用非数字，字母的字符进行分割..."></textarea>
+	<button id="leftin">左侧入</button>
+	<button id="rightin">右侧入</button>
+	<button id="leftout">左侧出</button>
+	<button id="rightout">右侧出</button>
+	<input type="text" id="search" placeholder="请输入想要搜索的内容">
+	<button id="searchbtn">search</button>
+	<ul id="list"></ul>
+	<script>
+		var leftin=document.getElementById('leftin');
+		var rightin=document.getElementById('rightin');
+		var leftout=document.getElementById('leftout');
+		var rightout=document.getElementById('rightout');
+		var list=document.getElementById('list');
+		var searchbtn=document.getElementById('searchbtn');
+		var data=[];
+
+		leftin.onclick=function(){
+			var splited=splitNum();
+			Array.prototype.unshift.apply(data,splited);
+			display();
+		};
+		// 左侧入
+		rightin.onclick=function(){
+			var splited=splitNum();
+			Array.prototype.push.apply(data,splited);
+			display();
+		};
+		// 右侧入
+		leftout.onclick=function(){
+			if(data.length>0){
+				var num=data.shift();
+				display();
+				alert(num);
+			}
+			else{
+				alert('You had deleted the last element!');
+			}
+		};
+		// 左侧出
+		rightout.onclick=function(){
+			if(data.length>0){
+				var num=data.pop();
+				display();
+				alert(num);
+			}
+			else{
+				alert('You had deleted the last element!');
+			}
+		};
+		// 右侧出
+		searchbtn.onclick=function(){
+			var searchValue=document.getElementById('search').value;
+			var aLi=list.getElementsByTagName('li');
+
+			for(var i=0;i<aLi.length;i++){
+				var aLiValue=aLi[i].innerHTML;
+				if(aLiValue.search(searchValue)!=-1){
+					aLi[i].style.background='#6cbeec';
+				}
+				else{
+					aLi[i].style.background='#666';
+				}
+			}
+		};
+		// 模糊搜索
+		function display(){
+			list.innerHTML='';
+			for(var i=0;i<data.length;i++){
+				list.innerHTML+="<li>"+data[i]+"</li>";
+			}
+		}
+		// 输入li
+		function splitNum(){
+			var input=document.getElementById('inputarea').value;
+			var arr=input.split(/[^a-zA-Z0-9\u4e00-\u9fa5]/g);
+			arr=arr.filter(function(e){return e;});
+			return arr;
+		}
+		// 将输入的字符串分割为数组，并去除空内容
+	</script>
+</body>
+</html>
