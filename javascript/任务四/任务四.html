@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#list{
+			list-style: none;
+		}
+		#list li{
+			float: left;
+			background: red;
+			color: white;
+			padding: 10px;
+			margin-right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="inputarea">
+	<button id="leftin">左侧入</button>
+	<button id="rightin">右侧入</button>
+	<button id="leftout">左侧出</button>
+	<button id="rightout">右侧出</button>
+	<ul id="list"></ul>
+	<script>
+		var leftin=document.getElementById('leftin');
+		var rightin=document.getElementById('rightin');
+		var leftout=document.getElementById('leftout');
+		var rightout=document.getElementById('rightout');
+		var list=document.getElementById('list');
+		var data=[];
+
+		leftin.onclick=function(){
+			var input=document.getElementById('inputarea').value;
+			if(isNaN(input)){
+				alert('Please input number only');
+				return;
+			}
+			else{
+				data.unshift(input);
+				display();
+			}
+		};
+
+		rightin.onclick=function(){
+			var input=document.getElementById('inputarea').value;
+			if(isNaN(input)){
+				alert('Please input number only');
+				return;
+			}
+			else{
+				data.push(input);
+				display();
+			}
+		};
+
+		leftout.onclick=function(){
+			if(data.length>0){
+				var num=data.shift();
+				display();
+				alert(num);
+			}
+			else{
+				alert('There is no number!');
+			}
+		};
+
+		rightout.onclick=function(){
+			if(data.length>0){
+				var num=data.pop();
+				display();
+				alert(num);
+			}
+			else{
+				alert('There is no number!');
+			}
+		};
+
+		function display(){
+			list.innerHTML='';
+			for(var i=0;i<data.length;i++){
+				list.innerHTML+="<li>"+data[i]+"</li>";
+			}
+		}
+		
+	</script>
+</body>
+</html>
