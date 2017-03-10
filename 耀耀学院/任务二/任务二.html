@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		input.wrong{
+			border: 1px solid #d70015;
+		}
+
+		input.right{
+			border: 1px solid #56b039;
+		}
+		
+		input{
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			width: 300px;
+			height: 30px;
+			margin: 0 30px;
+		}
+
+		form{
+			margin: 0 auto;
+			width: 600px;
+			height: 1000px;
+			border: 1px solid #ccc;
+			text-align: right;
+			padding-right: 180px;
+		}
+		
+		form div{
+			margin:70px 0;
+		}
+
+		input.button{
+			color: #fff;
+			background: #d9a7d1;
+			border-radius: 5px;
+			border: none;
+			width: 60px;
+			height: 30px;
+			font-size: 14px;
+			font-family: Microsoft Yahei;
+		}
+
+		label{
+			font-family: Microsoft Yahei;
+			font-size: 16px;
+		}
+
+		span{
+			height: 20px;
+			text-align: left;
+			margin-left: 270px;
+			padding-top: 5px;
+			color: #999;
+			visibility: hidden;
+			display: block;
+		}
+		
+		span.right{
+			color: #56b039;
+		}
+
+		span.wrong{
+			color: #d70015;
+		}
+	</style>
+</head>
+<body>
+	<form method="get">
+		<div id="row1">
+			<label for="testify1">名称</label>
+			<input type="text" id="testify1" onfocus="visible(document.getElementById('row1help'))" onblur="validate_Length(4,16,this,document.getElementById('row1help'))">
+
+			<span class="help" id="row1help">必填，长度为4～16个字符</span>
+			<!-- 默认提示 -->
+		</div>
+		<div id="row2">
+			<label for="testify2">密码</label>
+			<input type="password" id="testify2" onfocus="visible(document.getElementById('row2help'))" onblur="validate_password(this,document.getElementById('row2help'))">
+
+			<span class="help" id="row2help">请输入密码</span>
+			<!-- 默认提示 -->
+		</div>
+		<div id="row3">
+			<label for="testify3">密码确认</label>
+			<input type="password" id="testify3" onfocus="visible(document.getElementById('row3help'))" onblur="double_validate_password(this,document.getElementById('row3help'))">
+
+			<span class="help" id="row3help">再次输入相同的密码</span>
+			<!-- 默认提示 -->
+		</div>
+		<div id="row4">
+			<label for="testify4">邮箱</label>
+			<input type="text" id="testify4" onfocus="visible(document.getElementById('row4help'))" onblur="validate_email(this,document.getElementById('row4help'))">
+
+			<span class="help" id="row4help">请输入邮箱，格式为sample@sample.com</span>
+			<!-- 默认提示 -->
+		</div>
+		<div id="row5">
+			<label for="testify3">手机</label>
+			<input type="text" id="testify5" onfocus="visible(document.getElementById('row5help'))" onblur="validate_phone(this,document.getElementById('row5help'))">
+
+			<span class="help" id="row5help">请输入十一位手机号</span>
+			<!-- 默认提示 -->
+		</div>
+		<div class="row6">
+			<input type="button" value="提交" class="button" onclick="validate_phone(document.getElementById('testify5'),document.getElementById('row5help'));validate_email(document.getElementById('testify4'),document.getElementById('row4help'));double_validate_password(document.getElementById('testify3'),document.getElementById('row3help'));validate_password(document.getElementById('testify2'),document.getElementById('row2help'));validate_Length(4,16,document.getElementById('testify1'),document.getElementById('row1help'));validate_all()">
+		</div>
+	</form>
+	<script>
+		// 判断长度的函数
+		function validate_Length(minLength,maxLength,inputField,helpText){
+			helpText.style.visibility='visible';
+
+			if(inputField.value===0){
+				helpText.innerHTML='姓名不能为空';
+						inputField.className='wrong';
+						helpText.className='wrong';
+					// 没有输入时的错误提醒
+			}
+			else{
+				var modifiedValue= inputField.value.replace(/[^x00-xff]/g,'AB');
+				// 将非英文字符以外的字符转化为2个英文字符
+				if(modifiedValue.length<minLength||modifiedValue.length>maxLength){
+					helpText.innerHTML='请在范围内输入姓名！长度为4～16！';
+					inputField.className='wrong';
+					helpText.className='wrong';
+					// 没有在范围内输入的提醒
+				}
+				else{
+					helpText.innerHTML='名称格式正确';
+				inputField.className='right';
+				helpText.className='right';
+				// 输入正确时的提醒
+				}
+			}
+		}
+		// 验证长度
+		
+
+		function validate_password(inputField,helpText){
+			helpText.style.visibility='visible';
+
+			if(inputField.value.length<6){
+				helpText.innerHTML='密码长度需要大于6位！';
+				inputField.className='wrong';
+				helpText.className='wrong';
+			}
+			else if(helpText!==null){
+				helpText.innerHTML='密码可用';
+				inputField.className='right';
+				helpText.className='right';
+				// 输入正确时的提醒
+
+			}
+		}
+		// 检验密码
+		function double_validate_password(inputField,helpText){
+			var prevPass=document.getElementById('testify2').value;
+			helpText.style.visibility='visible';
+
+			if(prevPass!==inputField.value){
+				helpText.innerHTML='密码与上次输入的不同！';
+				inputField.className='wrong';
+				helpText.className='wrong';
+			}
+			else if(helpText!==null){
+				helpText.innerHTML='密码输入一致';
+				inputField.className='right';
+				helpText.className='right';
+			}
+		}
+		// 二次检验密码
+
+		function validate_email(inputField,helpText){
+			helpText.style.visibility='visible';
+
+			if(inputField.value.match(/[\w-\.]+@([\w-]+\.)+[a-z]{2,3}/)){
+				helpText.innerHTML='邮箱格式正确';
+				inputField.className='right';
+				helpText.className='right';
+			}
+			else{
+				helpText.innerHTML='邮箱格式错误';
+				inputField.className='wrong';
+				helpText.className='wrong';
+			}
+		}
+		// 检验邮箱
+		function validate_phone(inputField,helpText){
+			helpText.style.visibility='visible';
+
+			if(inputField.value.match(/^1(3|4|5|7|8)[0-9]\d{8}$/)){
+				helpText.innerHTML='手机格式正确';
+				inputField.className='right';
+				helpText.className='right';
+			}
+			else{
+				helpText.innerHTML='手机格式错误';
+				inputField.className='wrong';
+				helpText.className='wrong';
+			}
+		}
+		// 检验手机
+		function validate_all(){
+			var aSpan=document.getElementsByTagName('span');
+			var len=0;
+			for(var i=0;i<aSpan.length;i++){
+				if(aSpan[i].className==='right'){
+					len++;
+				}
+			}
+			if(len===5){
+				alert('提交成功');
+			}
+			else{
+				alert('提交失败');
+			}
+		}
+		// 检查是否全部验证通过
+		
+		function visible(dom){
+			dom.style.visibility='visible';
+		}
+		// 获得焦点可见
+	</script>
+</body>
+</html>
