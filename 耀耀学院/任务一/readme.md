@@ -18,4 +18,4 @@
 +	代码中含有必要的注释
 +	不允许借助任何第三方组件库实现
 
-[点我预览](http://htmlpreview.github.io/?https://github.com/RAAMENN/ife2017/blob/master/javascript/%E4%BB%BB%E5%8A%A1%E5%9B%9B/%E4%BB%BB%E5%8A%A1%E5%9B%9B.html)
+[点我预览](http://htmlpreview.github.io/?https://github.com/RAAMENN/ife2017/blob/master/%E8%80%80%E8%80%80%E5%AD%A6%E9%99%A2/%E4%BB%BB%E5%8A%A1%E4%B8%80/%E4%BB%BB%E5%8A%A1%E4%B8%80.html)
