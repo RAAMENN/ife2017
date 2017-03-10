@@ -15,4 +15,4 @@
 +	代码中含有必要的注释
 +	建议不使用任何第三方库、框架
 
-[点我预览](http://htmlpreview.github.io/?https://github.com/RAAMENN/ife2017/blob/master/javascript/%E4%BB%BB%E5%8A%A1%E5%85%AD/%E4%BB%BB%E5%8A%A1%E5%85%AD.html)
+[点我预览](http://htmlpreview.github.io/?https://github.com/RAAMENN/ife2017/blob/master/%E6%96%8C%E6%96%8C%E5%AD%A6%E9%99%A2/%E4%BB%BB%E5%8A%A1%E5%85%AD/%E4%BB%BB%E5%8A%A1%E5%85%AD.html)

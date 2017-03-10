@@ -58,4 +58,4 @@
 +	建议不使用任何第三方库、框架
 +	示例代码仅为示例，可以直接使用，也可以完全自己重写
 
-[点我预览](http://htmlpreview.github.io/?https://github.com/RAAMENN/ife2017/blob/master/javascript/%E4%BB%BB%E5%8A%A1%E4%BA%8C/%E4%BB%BB%E5%8A%A1%E4%BA%8C.html)
+[点我预览](http://htmlpreview.github.io/?https://github.com/RAAMENN/ife2017/blob/master/%E6%96%8C%E6%96%8C%E5%AD%A6%E9%99%A2/%E4%BB%BB%E5%8A%A1%E4%BA%8C/%E4%BB%BB%E5%8A%A1%E4%BA%8C.html)
