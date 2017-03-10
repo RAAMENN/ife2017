@@ -18,4 +18,4 @@
 +	调节浏览器高度和宽度，黄色扇形的定位始终准确。
 +	其他效果图中给出的标识均被正确地实现，错一项扣一分。
 
-[点我预览](http://htmlpreview.github.io/?https://github.com/RAAMENN/ife2017/blob/master/html%2Bcss/%E4%BB%BB%E5%8A%A1%E5%9B%9B/%E4%BB%BB%E5%8A%A1%E5%9B%9B.html)
+[点我预览](http://htmlpreview.github.io/?https://github.com/RAAMENN/ife2017/blob/master/%E5%B0%8F%E8%96%87%E5%AD%A6%E9%99%A2/%E4%BB%BB%E5%8A%A1%E5%9B%9B/%E4%BB%BB%E5%8A%A1%E5%9B%9B.html)
