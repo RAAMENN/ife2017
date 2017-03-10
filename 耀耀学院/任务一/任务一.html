@@ -4,15 +4,16 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
-		input:invalid{
-			border: 1px solid red;
+		input.wrong{
+			border: 1px solid #d70015;
 		}
 
-		input:valid{
-			border: 1px solid #ccc;
+		input.right{
+			border: 1px solid #56b039;
 		}
 		
 		input{
+			border: 1px solid #ccc;
 			border-radius: 5px;
 			width: 300px;
 			height: 30px;
@@ -31,7 +32,7 @@
 			margin:70px 0;
 		}
 
-		button{
+		input.button{
 			color: #fff;
 			background: #235b9b;
 			border-radius: 5px;
@@ -46,25 +47,83 @@
 			font-family: Microsoft Yahei;
 			font-size: 16px;
 		}
+
+		span{
+			display: block;
+			height: 20px;
+			text-align: left;
+			margin-left: 135px;
+			padding-top: 5px;
+			color: #999;
+		}
+		
+		span.right{
+			color: #56b039;
+		}
+
+		span.wrong{
+			color: #d70015;
+		}
 	</style>
 </head>
 <body>
-	<form action="">
+	<form method="get">
 		<div id="row1">
 			<label for="testify1">名称</label>
 			<input type="text" id="testify1">
-			<button>验证</button>
+			<input type="button" onclick="validate_Length(4,16,document.getElementById('testify1'),document.getElementById('row1help'))" class="button" value="验证">
+			<!-- 为button绑定事件并将参数传入 -->
+
+			<span class="help" id="row1help">必填，长度为4～16个字符</span>
+			<!-- 默认提示 -->
 		</div>
 		<div id="row2">
 			<label for="testify2">名称</label>
 			<input type="text" id="testify2">
-			<button>验证</button>
+			<input type="button" onclick="validate_Length(4,16,document.getElementById('testify2'),document.getElementById('row2help'))" class="button" value="验证">
+			<!-- 为button绑定事件并将参数传入 -->
+
+			<span class="help" id="row2help">必填，长度为4～16个字符</span>
+			<!-- 默认提示 -->
 		</div>
 		<div id="row3">
 			<label for="testify3">名称</label>
 			<input type="text" id="testify3">
-			<button>验证</button>
+			<input type="button" onclick="validate_Length(4,16,document.getElementById('testify3'),document.getElementById('row3help'))" class="button" value="验证">
+			<!-- 为button绑定事件并将参数传入 -->
+
+			<span class="help" id="row3help">必填，长度为4～16个字符</span>
+			<!-- 默认提示 -->
 		</div>
 	</form>
+	<script>
+		// 判断长度的函数
+		function validate_Length(minLength,maxLength,inputField,helpText){
+			var modifiedValue= inputField.value.replace(/[^x00-xff]/g,'AB');
+			// 将非英文字符以外的字符转化为2个英文字符
+			if(modifiedValue.length<minLength||modifiedValue.length>maxLength){
+				if(modifiedValue.length===0){
+					if(helpText!==null){
+						helpText.innerHTML='姓名不能为空';
+						inputField.className='wrong';
+						helpText.className='wrong';
+					}
+					// 没有输入时的错误提醒
+				}
+				else{
+					helpText.innerHTML='请在范围内输入姓名！长度为4～16！';
+						inputField.className='wrong';
+						helpText.className='wrong';
+						// 没有在范围内输入的提醒
+				}
+			}
+			else if(helpText!==null){
+				helpText.innerHTML='名称格式正确';
+				inputField.className='right';
+				helpText.className='right';
+				// 输入正确时的提醒
+			}
+		}
+	</script>
 </body>
 </html>
