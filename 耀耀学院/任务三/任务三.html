@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		select.display{
+			display: inline-block;
+		}
+
+		select.none{
+			display: none;
+		}
+		form{
+			border: 1px solid #666;
+			background: #fff;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			display: inline-block;
+			height: 500px;
+			width: 400px;
+			text-align: center;
+			padding: 30px;
+		}
+
+	</style>
+</head>
+<body>
+	<form action="" name="regi">
+		<input type="radio" name="type" value="undergraduate" checked onchange="selectType()">在校生
+		<input type="radio" name="type" value="graduate" onchange="selectType()">非在校生
+		<div class="undergraduate">
+			<span>学校</span>
+			<select name="city" id="city" onchange="selectCity()">
+				<option value="beijing">北京</option>
+				<option value="shanghai">上海</option>
+				<option value="hongkong">香港</option>
+			</select>
+			<select name="beijing" id="beijing" class="college display">
+					<option value="pku">北京大学</option>
+					<option value="thu">清华大学</option>
+			</select>
+			<select name="shanghai" id="shanghai" class="college none">
+					<option value="sjtu">交通大学</option>
+					<option value="fdu">复旦大学</option>
+			</select>
+			<select name="hongkong" id="hongkong" class="college none">
+					<option value="hku">香港大学</option>
+			</select>
+		</div>
+		<div class="graduate" style="display: none;">
+			<span>就业单位</span>
+			<input type="text">
+		</div>
+	</form>
+		<script>
+			function selectCity(){
+				var citySelect=document.getElementById('city');
+				var collegeSelect=document.getElementsByClassName('college');
+				// 选出所需元素
+
+				if(citySelect.value==="beijing"){
+					for(var i=0;i<collegeSelect.length;i++){
+						collegeSelect[i].className="college none";
+					}
+					collegeSelect[0].className="college display";
+				}
+				else if(citySelect.value==="shanghai"){
+					for(var i=0;i<collegeSelect.length;i++){
+						collegeSelect[i].className="college none";
+					}
+					collegeSelect[1].className="college display";
+				}
+				else{
+					for(var i=0;i<collegeSelect.length;i++){
+						collegeSelect[i].className="college none";
+					}
+					collegeSelect[2].className="college display";
+				}
+				// 判断选中的地区，根据地区改变学校的display
+
+			}
+
+			function selectType(){
+				var aDiv=document.getElementsByTagName('div');
+				if(document.regi.type[0].checked===true){
+					aDiv[0].style.display="block";
+					aDiv[1].style.display="none";
+				}
+				if(document.regi.type[1].checked===true){
+					aDiv[0].style.display="none";
+					aDiv[1].style.display="block";
+				}
+
+				// 判断是在校生还是非在校生
+			}
+		</script>
+	</div>
+</body>
+</html>
