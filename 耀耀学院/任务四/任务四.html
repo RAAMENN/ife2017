@@ -47,7 +47,7 @@
         <input type="button" id="btn" value="执行" onclick="direction()">
         <div class="des">
         	<p>
-        	输入框中允许输入如下指令，按下按钮后，使得正方形做相应动作<br>GO：向蓝色边所面向的方向前进一格<br>TUN LEF：向左转<br>TUN RIG：向右转<br>TUN BAC：向右转</p>
+        	输入框中允许输入如下指令，按下按钮后，使得正方形做相应动作<br>GO：向蓝色边所面向的方向前进一格<br>TUN LEF：向左转<br>TUN RIG：向右转<br>TUN BAC：向后转</p>
         </div>
     </form>
     <script>
@@ -61,10 +61,16 @@
     };
 
     function direction(){
+    	
     	var direction=$('input').value;
     	switch(direction){
-    		case 'go':{
-    			go();
+    		case 'GO':{
+    			if(position.x===0&&position.direction===1||position.x==9&&position.direction===4||position.y===0&&position.direction===2||position.y===9&&position.direction===3){
+    				alert('You have reached edge!');
+    			}
+    			else{
+    				go();
+    			}
     			break;
     		}
     		case 'TUN LEF':{
