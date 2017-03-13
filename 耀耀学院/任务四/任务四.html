@@ -44,7 +44,7 @@
     </table>
     <form action="">
         <input type="text" id="input">
-        <input type="button" id="btn" value="执行" onclick="direction()">
+        <input type="button" id="btn" value="执行" onclick="start()">
         <div class="des">
         	<p>
         	输入框中允许输入如下指令，按下按钮后，使得正方形做相应动作<br>GO：向蓝色边所面向的方向前进一格<br>TUN LEF：向左转<br>TUN RIG：向右转<br>TUN BAC：向后转</p>
@@ -60,12 +60,12 @@
     	direction:1
     };
 
-    function direction(){
+    function start(){
     	
     	var direction=$('input').value;
     	switch(direction){
     		case 'GO':{
-    			if(position.x===0&&position.direction===1||position.x==9&&position.direction===4||position.y===0&&position.direction===2||position.y===9&&position.direction===3){
+    			if(position.x===0&&position.direction===1||position.x==9&&position.direction===3||position.y===0&&position.direction===4||position.y===9&&position.direction===2){
     				alert('You have reached edge!');
     			}
     			else{
@@ -74,26 +74,60 @@
     			break;
     		}
     		case 'TUN LEF':{
-    			position.direction=2;
-    			var currentPos=position.x*10+position.y;
-    			var currentTd='td'+currentPos;
-    			$(currentTd).className='selected left';
+                if(position.direction===1){
+                    position.direction=4;
+                }
+                else{
+    			position.direction-=1;
+                }
+                direct();
     			break;
     		}
     		case 'TUN RIG':{
-    			position.direction=3;
-    			var currentPos=position.x*10+position.y;
-    			var currentTd='td'+currentPos;
-    			$(currentTd).className='selected right';
+    			if(position.direction===4){
+                    position.direction=1;
+                }
+                else{
+                position.direction+=1;
+                }
+                direct();
     			break;
     		}
     		case 'TUN BAC':{
-    			position.direction=4;
-    			var currentPos=position.x*10+position.y;
-    			var currentTd='td'+currentPos;
-    			$(currentTd).className='selected bottom';
+    			if(position.direction===3){
+                    position.direction=1;
+                }
+                else if(position.direction===4){
+                    position.direction=2;
+                }
+                else{
+                position.direction+=2;
+                }
+    			direct();
     		}
     	}
+    }
+
+    function direct(){
+        var currentPos=position.x*10+position.y;
+        var currentTd='td'+currentPos;
+        switch(position.direction){
+            case 1:{
+                $(currentTd).className='selected top';
+                break;
+            }
+            case 2:{
+                $(currentTd).className='selected right';
+                break;
+            }
+            case 3:{
+                $(currentTd).className='selected bottom';
+                break;
+            }
+            case 4:{
+                $(currentTd).className='selected left';
+            }
+        }
     }
 
     function go(){
@@ -105,7 +139,6 @@
     			position.x-=1;
     			var nextPosition=position.x*10+position.y;
     			var nextTd='td'+nextPosition;
-    			console.log(nextTd);
     			$(nextTd).className='selected top';
     			break;
     		}
@@ -114,7 +147,6 @@
     			position.y-=1;
     			var nextPosition=position.x*10+position.y;
     			var nextTd='td'+nextPosition;
-    			console.log(nextTd);
     			$(nextTd).className='selected left';
     			break;
     		}
@@ -123,7 +155,6 @@
     			position.y+=1;
     			var nextPosition=position.x*10+position.y;
     			var nextTd='td'+nextPosition;
-    			console.log(nextTd);
     			$(nextTd).className='selected right';
     			break;
     		}
@@ -132,7 +163,6 @@
     			position.x+=1;
     			var nextPosition=position.x*10+position.y;
     			var nextTd='td'+nextPosition;
-    			console.log(nextTd);
     			$(nextTd).className='selected bottom';
     		}
     	}
