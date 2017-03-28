@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    *{
+        box-sizing: border-box;
+    }
+    table {
+        border-spacing: 0;
+        border: 2px solid #000;
+        position: relative;
+    }
+    
+    td {
+        border: 1px solid #666;
+        width: 50px;
+        height: 50px;
+    }
+
+    td div{
+        background: #51c536;
+        width: 50px;
+        height: 50px;
+        border-top: 5px solid #40a02c;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        transition: all 0.5s;
+        box-sizing: border-box;
+    }
+    
+    .command{
+        margin-top: 50px;
+    }
+    .command input{
+        width: 80px;
+        height: 30px;
+        background: #1b8f2d;
+        color: #fff;
+        border: none;
+        cursor:pointer;
+    }
+
+    .command input:hover{
+        box-shadow:1px 0 1px #167025;
+    }
+    </style>
+</head>
+
+<body>
+    <table id="table">
+    </table>
+   <div class="command">
+       <input type="button" value="GO" id="GO">
+       <input type="button" value="TUN LEF" id="TUNLEF">
+       <input type="button" value="TUN RIG" id="TUNRIG">
+       <input type="button" value="TUN BAC" id="TUNBAC">
+       <!-- <input type="button" value="MOV LEF" id="MOVLEF">
+       <input type="button" value="MOV TOP" id="MOVTOP">
+       <input type="button" value="MOV RIG" id="MOVRIG">
+       <input type="button" value="MOV BOT" id="MOVBOT"> -->
+   </div>
+    <script>
+    function $(id) {
+        return document.getElementById(id);
+    }
+
+    function createTable(){
+    	var aTr='';
+    	for(var i=0;i<10;i++){
+    		var aTd='';
+    		for(var j=0;j<10;j++){
+    			var number=i*10+j;
+    			aTd+="<td id='td"+number+"'></td>";
+    		}
+    		aTr+='<tr>'+aTd+'</tr>';
+    	}
+    	$('table').innerHTML=aTr;
+
+    	$('td0').innerHTML="<div id='spec'></div>";
+    }
+
+    
+
+    function forward(){
+        currentDeg=div.currentDeg%360;
+
+        if(currentDeg>=0){
+            currentDeg=currentDeg;
+        }
+        else{
+            currentDeg+=360;
+        }
+
+        switch(currentDeg){
+            case 0:
+            if(div.y<=0){
+                alert('已到边界！');
+            }else{
+                $('spec').style.top=div.y-50+'px';
+                div.y-=50;
+            }
+            break;
+            case 90:
+            if(div.x>=450){
+                alert('已到边界！');
+            }else{
+                $('spec').style.left=div.x+50+'px';
+                console.log($('spec').offsetLeft);
+                div.x+=50;
+                console.log(div.x);    
+            }
+            break;
+            case 180:
+            if(div.y>=450){
+                alert('已到边界！');
+            }else{
+                $('spec').style.top=div.y+50+'px';
+                div.y+=50;
+            }
+            break;
+            case 270:
+            if(div.x<=0){
+                alert('已到边界！');
+            }else{
+                $('spec').style.left=div.x-50+'px';
+                div.x-=50;
+            }
+            break;
+        }
+    }
+
+    function turnLeft(){
+        rotate(div.currentDeg-90);
+    }
+
+    function turnRight(){
+        rotate(div.currentDeg+90);
+    }
+
+    function turnBack(){
+        rotate(div.currentDeg+180);
+    }
+
+    function rotate(deg){
+        $('spec').style.transform='rotate('+deg+'deg)';
+        div.currentDeg=deg;
+    }
+
+    function BtnBundle(){
+        $("GO").onclick = forward;
+        $("TUNLEF").onclick = turnLeft;
+        $("TUNRIG").onclick = turnRight;
+        $("TUNBAC").onclick = turnBack;
+    }
+    function initial(){
+        createTable();
+        BtnBundle();
+    }
+
+    initial();
+
+    var div={
+        x:$('spec').offsetLeft,
+        y:$('spec').offsetTop,
+        currentDeg:0
+    };
+    
+
+    </script>
+</body>
+
+</html>
