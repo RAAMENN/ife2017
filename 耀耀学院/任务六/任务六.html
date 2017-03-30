@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="任务六.css">
+	<style>
+		body{
+			background-color: #aaa;
+		}
+		.u-trigger{
+			display: block;
+			width: 120px;
+			height: 32px;
+			font-size: 16px;
+			margin: 60px auto;
+		}
+	</style>
+</head>
+<body>
+	<button class="u-trigger">show modal</button>
+	<script src='任务六.js'></script>
+	<script>
+		var modal=new Modal({
+		// 1.内容配置
+		content:"内容在此",
+		// // 2.动画设置
+		// animation:{
+		// 	enter:'bounceIn',
+		// 	leave:'bounceOut'
+		// },
+		// 3.confirm回调
+		onConfirm:function(){
+			console.log('ok');
+		},
+		onCancel:function(){
+			console.log('cancel');
+		}
+		});
+
+		document.querySelector('.u-trigger').addEventListener('click',function(){
+			modal.show("<h3>弹窗内容</h3>");
+		});
+	</script>
+</body>
+</html>
